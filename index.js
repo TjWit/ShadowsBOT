@@ -20,7 +20,7 @@ const welcome = require('./commands/welcome')
 //When bot logs on
 client.on('ready', () => {
     console.log('TjSploits bot is now online ✔');
-    client.user.setActivity(`you type ${prefix}help!`, {type: 'WATCHING'})
+    client.user.setActivity(`you DM me for help`, {type: 'WATCHING'})
 welcome(client)
 })
 //Command Handler
@@ -68,7 +68,7 @@ client.on('message', async (message) =>{
     }
 
     if (command ==='executor') {
-        client.commands.get(execute).execute(message, args);
+        client.commands.get(executor).execute(message, args);
     }
 })
 //Modmail Admin Message
