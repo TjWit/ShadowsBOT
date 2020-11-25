@@ -34,10 +34,6 @@ client.on('message', async (message) =>{
     if (command == 'ping') {
        client.commands.get('ping').execute(message, args);
     }
-
-    if (command ==='say') {
-        client.commands.get('say').execute(message, args);
-    }
     
     if (command ==='kick') {
         client.commands.get('kick').execute(message, args);
@@ -45,6 +41,34 @@ client.on('message', async (message) =>{
 
     if (command ==='ban') {
         client.commands.get('ban').execute(message, args);
+    }
+
+    if (command ==='help') {
+        client.commands.get('help').execute(message, args);
+    }
+
+    if (command ==='clear') {
+        client.commands.get('clear').execute(message, args);
+    }
+
+    if (command ==='falsepositive') {
+        client.commands.get(falsepositive).execute(message, args);
+    }
+
+    if (command ==='fp') {
+        client.commands.get(falsepositive).execute(message, args);
+    }
+
+    if (command ==='commands') {
+        client.commands.get(commands).execute(message, args);
+    }
+
+    if (command ==='cmds') {
+        client.commands.get(commands).execute(message, args);
+    }
+
+    if (command ==='executor') {
+        client.commands.get(execute).execute(message, args);
     }
 })
 //Modmail Admin Message
@@ -99,8 +123,14 @@ client.on('message', message => {
         message.channel.send('Your message was sent, please wait for a response ✅');
 
         const mailMessage = `${message.author} ${msg}`
+        let mmaEmbed = new Discord.MessageEmbed()
+            .setThumbnail(message.author.displayAvatarURL())
+            .setDescription(mailMessage)
+            .setColor('#2e0200')
+            .setFooter('TjSploits/Shadows')
+            .setTimestamp();
 
-        client.channels.fetch('779360430345945168').then(user => user.send(mailMessage).catch(err => console.log(err)));
+        client.channels.fetch('779360430345945168').then(user => user.send(mmaEmbed).catch(err => console.log(err)));
     }
 })
 
